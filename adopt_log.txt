@@ -1,0 +1,16 @@
+192.168.88.193 - ❌ connection error - Sat May 17 11:56:30 AM EEST 2025
+192.168.88.192 - ❌ connection error - Sat May 17 11:56:31 AM EEST 2025
+192.168.88.191 - ❌ connection error - Sat May 17 11:56:33 AM EEST 2025
+192.168.88.189 - ❌ connection error - Sat May 17 11:56:35 AM EEST 2025
+192.168.88.190 - ❌ connection error - Sat May 17 11:56:36 AM EEST 2025
+192.168.88.193 - ❌ connection error - Sat May 17 11:58:40 AM EEST 2025
+192.168.88.192 - ❌ connection error - Sat May 17 11:58:42 AM EEST 2025
+192.168.88.191 - ❌ connection error - Sat May 17 11:58:44 AM EEST 2025
+192.168.88.189 - ❌ connection error - Sat May 17 11:58:46 AM EEST 2025
+192.168.88.190 - ❌ connection error - Sat May 17 11:58:48 AM EEST 2025
+192.168.88.193 - ✅ set-inform done - Sat May 17 11:59:10 AM EEST 2025
+192.168.88.193 - ✅ set-inform done - Sat May 17 12:18:12 PM EEST 2025
+192.168.88.192 - ✅ set-inform done - Sat May 17 12:18:25 PM EEST 2025
+192.168.88.191 - ✅ set-inform done - Sat May 17 12:18:28 PM EEST 2025
+192.168.88.189 - ✅ set-inform done - Sat May 17 12:18:31 PM EEST 2025
+192.168.88.190 - ✅ set-inform done - Sat May 17 12:18:33 PM EEST 2025
