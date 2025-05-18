@@ -17,14 +17,16 @@ fi
 # log file
 LOG_FILE="adopt_log.txt"
 
-# get ip AP from mikrotik MikroTik
+# get ip APs from mikrotik
 echo "get ips from MikroTik $MIKROTIK_HOSTNAME..."
 
+# you can cahange or add secound mac-address via | (pipe)
 sshpass -p "$MIKROTIK_PASS" ssh -o StrictHostKeyChecking=no "$MIKROTIK_USER@$MIKROTIK_HOSTNAME" \
 "/ip dhcp-server lease print without-paging" \
 | grep -iE '0C:EA:14:' \
 | awk '{print $3}' > ips.txt
 
+# print ips to cli
 echo "✅ AP ips: $(wc -l < ips.txt)"
 
 sed -i 's/\r$//' ips.txt
