@@ -20,7 +20,7 @@ LOG_FILE="adopt_log.txt"
 # get ip AP from mikrotik
 echo "get ips from MikroTik $MIKROTIK_HOSTNAME..."
 
-# you can change MAC-addr pattern aor add secound via |
+# you can change MAC-addr pattern or add secound via | (pipe)
 sshpass -p "$MIKROTIK_PASS" ssh -o StrictHostKeyChecking=no "$MIKROTIK_USER@$MIKROTIK_HOSTNAME>"/ip dhcp-server lease print without-paging" \
 | grep -iE '0C:EA:14:' \
 | awk '{print $3}' > ips.txt
