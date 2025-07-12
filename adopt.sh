@@ -20,14 +20,14 @@ LOG_FILE="adopt_log.txt"
 # get ip APs from mikrotik
 echo "get ips from MikroTik $MIKROTIK_HOSTNAME..."
 
-# you can cahange or add secound mac-address via | (pipe)
+# you can cahange or add another mac-address via | (pipe)
 sshpass -p "$MIKROTIK_PASS" ssh -o StrictHostKeyChecking=no "$MIKROTIK_USER@$MIKROTIK_HOSTNAME" \
 "/ip dhcp-server lease print without-paging" \
-| grep -iE '0C:EA:14:' \
+| grep -iE '0C:EA:14:|28:70:4E:' \
 | awk '{print $3}' > ips.txt
 
 # print ips to cli
-echo "✅ AP ips: $(wc -l < ips.txt)"
+echo "✅ AP ips: $(cat -n < ips.txt)"
 
 sed -i 's/\r$//' ips.txt
 
@@ -35,7 +35,7 @@ for ip in $(cat ips.txt); do
     [[ -z "$ip" ]] && continue
     echo "➡️ $ip — set-inform"
 
-    sshpass -p "$UNIFI_PASS" ssh -o StrictHostKeyChecking=no -o ConnectTimeout=5 "$UNIFI_USER@$ip" \      
+    sshpass -p "$UNIFI_PASS" ssh -o StrictHostKeyChecking=no -o ConnectTimeout=5 "$UNIFI_USER@$ip" \
     "mca-cli-op set-inform $INFORM_URL" > /dev/null 2>&1
 
     if [[ $? -eq 0 ]]; then
@@ -43,5 +43,4 @@ for ip in $(cat ips.txt); do
     else
         echo "$ip - ❌ connection error - $(date)" | tee -a "$LOG_FILE"
     fi
-
 done < ips.txt
